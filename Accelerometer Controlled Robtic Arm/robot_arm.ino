@@ -1,12 +1,4 @@
 /*
- ADXL3xx
- 
- Reads an Analog Devices ADXL3xx accelerometer and communicates the
- acceleration to the computer.  The pins used are designed to be easily
- compatible with the breakout boards from Sparkfun, available from:
- http://www.sparkfun.com/commerce/categories.php?c=80
-
- http://www.arduino.cc/en/Tutorial/ADXL3xx
 
  The circuit:
  analog 0: accelerometer self test
@@ -15,13 +7,6 @@
  analog 3: x-axis
  analog 4: ground
  analog 5: vcc
- 
- created 2 Jul 2008
- by David A. Mellis
- modified 30 Aug 2011
- by Tom Igoe 
- 
- This example code is in the public domain.
 
 */
 
@@ -30,9 +15,6 @@
 
 const int groundpin = 18;             // analog input pin 4 -- ground
 const int powerpin = 19;              // analog input pin 5 -- voltage
-/*const int xpin = A3;                  // x-axis of the accelerometer
-const int ypin = A2;                  // y-axis
-const int zpin = A1;                  // z-axis (only on 3-axis models)*/
 
 Servo servox;
 Servo servoy;
@@ -55,7 +37,6 @@ int valz = 0;
 void setup()
 {
   // initialize the serial communications:
-  
   
   // Provide ground and power by using the analog inputs as normal
   // digital pins.  This makes it possible to directly connect the
@@ -101,17 +82,17 @@ void loop()
     posx--;
     servox.write(posx);
   }
-    if((valx>375)&&(valx<415)&&(valy>320)&&(valy<350))
+  if((valx>375)&&(valx<415)&&(valy>320)&&(valy<350))
   {
     posx++;
     servox.write(posx);
   }
-    if((valx>320)&&(valx<350)&&(valy>260)&&(valy<300))
+  if((valx>320)&&(valx<350)&&(valy>260)&&(valy<300))
   {
     posy++;
     servoy.write(posy);
   }
-    if((valx>320)&&(valx<360)&&(valy>370)&&(valy<400))
+  if((valx>320)&&(valx<360)&&(valy>370)&&(valy<400))
   {
     posy--;
     servoy.write(posy);
@@ -124,12 +105,12 @@ void loop()
   {
     servog.write(0);
   }
-    if((valx>290)&&(valx<315)&&(valy>305)&&(valy<330))
+  if((valx>290)&&(valx<315)&&(valy>305)&&(valy<330))
   {
     posz++;
     servoz.write(posz);
   }
-    if((valx>350)&&(valx<380)&&(valy>305)&&(valy<330))
+  if((valx>350)&&(valx<380)&&(valy>305)&&(valy<330))
   {
     posz--;
     servoz.write(posz);
