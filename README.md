@@ -1,3 +1,3 @@
 # Robotics Projects
 
-Contains some of the projects I did in Robotics.
+Contains codes for some Robotics projects.
